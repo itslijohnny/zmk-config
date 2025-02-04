@@ -25,7 +25,7 @@
             quick-tap-ms = <175>;
             flavor = "balanced";
             hold-trigger-on-release;
-            hold-trigger-key-positions = <6 7 8 9 10 15 18 19 20 21 22 30 31 32 33 34>;
+            hold-trigger-key-positions = <6 7 8 9 10 18 19 20 21 22 30 31 32 33 34>;
             require-prior-idle-ms = <50>;
         };
 
@@ -50,9 +50,9 @@
             bindings = <&kp LC(C)>, <&kp LC(X)>;
         };
 
-        shift_cap: shift_cap {
+        lshift_cap: lshift_cap {
             compatible = "zmk,behavior-tap-dance";
-            label = "SHIFT_CAP";
+            label = "LSHIFT_CAP";
             #binding-cells = <0>;
             bindings = <&kp LSHIFT>, <&caps_word>;
         };
@@ -92,6 +92,54 @@
             #binding-cells = <0>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
             keep-mods = <(MOD_RSFT)>;
+        };
+
+        rshift_cap: rshift_cap {
+            compatible = "zmk,behavior-tap-dance";
+            label = "RSHIFT_CAP";
+            #binding-cells = <0>;
+            bindings = <&kp RIGHT_SHIFT>, <&caps_word>;
+        };
+
+        ltm: ltm {
+            compatible = "zmk,behavior-hold-tap";
+            label = "LTM";
+            bindings = <&mo>, <&kp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <280>;
+            quick-tap-ms = <175>;
+            flavor = "balanced";
+            hold-trigger-on-release;
+            require-prior-idle-ms = <50>;
+        };
+
+        hmsl: hmsl {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HMSL";
+            bindings = <&lshift_cap>, <&kp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <280>;
+            quick-tap-ms = <175>;
+            flavor = "balanced";
+            hold-trigger-on-release;
+            hold-trigger-key-positions = <6 7 8 9 10 18 19 20 21 22 30 31 32 33 34>;
+            require-prior-idle-ms = <50>;
+        };
+
+        hmsr: hmsr {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HMSR";
+            bindings = <&rshift_cap>, <&kp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <280>;
+            quick-tap-ms = <175>;
+            flavor = "balanced";
+            hold-trigger-on-release;
+            hold-trigger-key-positions = <1 2 3 4 5 13 14 15 16 17 25 26 27 28 29>;
+            require-prior-idle-ms = <50>;
         };
     };
 
@@ -168,18 +216,18 @@
             //                    | ESC | TAB | SPC |   | ENT | BSPC | DEL |
 
             bindings = <
-&none  &kp Q         &kp W        &kp E         &kp R         &kp T        &kp Y      &kp U         &kp I            &kp O        &kp P           &none
-&none  &hml LCTRL A  &hml LALT S  &hml LGUI D   &hml LSHFT F  &kp G        &kp H      &hmr RSHFT J  &hmr RGUI K      &hmr LALT L  &hmr RCTRL SQT  &none
-&none  &kp Z         &kp X        &kp C         &kp V         &kp B        &kp N      &kp M         &com_sem         &dot_col     &exc_qmk        &none
-                                  &lt 1 ESCAPE  &lt 1 TAB     &kp SPACE    &kp SPACE  &lt 1 ENTER   &lt 0 BACKSPACE
+&none  &kp Q         &kp W        &kp E         &kp R       &kp T        &kp Y      &kp U         &kp I            &kp O        &kp P           &none
+&none  &hml LCTRL A  &hml LALT S  &hml LGUI D   &hmsl 0 F   &kp G        &kp H      &hmsr 0 J     &hmr RGUI K      &hmr LALT L  &hmr RCTRL SQT  &none
+&none  &kp Z         &kp X        &kp C         &kp V       &kp B        &kp N      &kp M         &com_sem         &dot_col     &exc_qmk        &none
+                                  &lt 1 ESCAPE  &ltm 1 TAB  &kp SPACE    &kp SPACE  &ltm 1 ENTER  &lt 0 BACKSPACE
             >;
         };
 
         num_layer {
             bindings = <
-&trans  &kp LALT          &kp N7              &kp N8        &kp N9         &none         &none       &kp N7         &kp N8        &kp N9        &kp RALT           &trans
-&trans  &kp LEFT_CONTROL  &hml LALT NUMBER_4  &hml LGUI N5  &hml LSHFT N6  &kp N0        &kp N0      &hmr RSHFT N4  &hmr LCMD N5  &hmr RALT N6  &kp RIGHT_CONTROL  &trans
-&trans  &kp LCMD          &kp N1              &kp N2        &kp N3         &kp PERIOD    &kp PERIOD  &kp N1         &kp NUMBER_2  &kp N3        &kp RCMD           &trans
+&trans  &kp LALT          &kp N7              &kp N8        &kp N9         &none         &none       &kp N7         &kp N8             &kp N9        &kp RALT           &trans
+&trans  &kp LEFT_CONTROL  &hml LALT NUMBER_4  &hml LGUI N5  &hml LSHFT N6  &kp N0        &kp N0      &hmr RSHFT N4  &hmr RIGHT_GUI N5  &hmr RALT N6  &kp RIGHT_CONTROL  &trans
+&trans  &kp LCMD          &kp N1              &kp N2        &kp N3         &kp PERIOD    &kp PERIOD  &kp N1         &kp NUMBER_2       &kp N3        &kp RCMD           &trans
                                               &trans        &trans         &trans        &trans      &trans         &trans
             >;
 
