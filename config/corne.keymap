@@ -156,10 +156,9 @@
             key-positions = <9 10>;
         };
 
-        num_div {
-            bindings = <&kp SLASH>;
-            key-positions = <5 17>;
-            layers = <1>;
+        FIND_COMBOS {
+            bindings = <&kp LC(F)>;
+            key-positions = <25 16>;
         };
 
         SAVE_COMBOS {
@@ -172,21 +171,31 @@
             key-positions = <25 27>;
         };
 
-        num_equ {
-            bindings = <&kp EQUAL>;
-            key-positions = <17 29>;
-            layers = <1>;
+        SELECT_ALL_COMBOS {
+            bindings = <&kp LC(A)>;
+            key-positions = <25 13>;
         };
 
-        num_div_r {
-            bindings = <&kp SLASH>;
-            key-positions = <6 18>;
-            layers = <1>;
+        PASTE_COMBOS {
+            bindings = <&kp LC(SLASH)>;
+            key-positions = <25 28>;
         };
 
         num_equ_r {
             bindings = <&kp EQUAL>;
             key-positions = <18 30>;
+        };
+
+        wm_12 {
+            bindings = <&kp LA(LG(E))>;
+            key-positions = <6 18>;
+            layers = <3>;
+        };
+
+        wm_23 {
+            bindings = <&kp LA(LG(T))>;
+            key-positions = <18 30>;
+            layers = <3>;
         };
     };
 
@@ -245,10 +254,10 @@
 
         fn_layer {
             bindings = <
-&none  &kp LALT          &none           &kp UP_ARROW    &none             &kp PG_UP    &kp HOME  &none            &kp UP_ARROW          &none            &kp RIGHT_ALT  &none
-&none  &kp LEFT_CONTROL  &hml LALT LEFT  &hml LCMD DOWN  &hml LSHFT RIGHT  &kp PG_DN    &kp END   &hmr RSHFT LEFT  &hmr RCMD DOWN_ARROW  &hmr RALT RIGHT  &kp RCTRL      &none
-&none  &kp LCMD          &none           &none           &none             &none        &none     &none            &none                 &none            &kp RCMD       &none
-                                         &trans          &trans            &trans       &trans    &trans           &trans
+&none  &kp F12                &kp F7        &kp F8        &kp F9         &none     &kp LA(LG(D))  &none                   &kp C_VOLUME_UP     &none                &none      &none
+&none  &hml LEFT_CONTROL F11  &hml LALT F4  &hml LCMD F5  &hml LSHFT F6  &none     &kp LA(LG(F))  &hmr RSHFT LG(LEFT)     &hmr RCMD C_VOL_DN  &hmr RALT LG(RIGHT)  &kp RCTRL  &none
+&none  &kp F10                &kp F1        &kp F2        &kp F3         &none     &kp LA(LG(G))  &kp LA(LG(LEFT_ARROW))  &kp C_MUTE          &kp LA(LG(RIGHT))    &none      &none
+                                            &trans        &trans         &trans    &trans         &trans                  &trans
             >;
         };
     };
