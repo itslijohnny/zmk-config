@@ -281,6 +281,36 @@
             bindings = <&kp UNDER>;
             key-positions = <18 30>;
         };
+
+        grave_combos {
+            bindings = <&kp GRAVE>;
+            key-positions = <16 28>;
+        };
+
+        at_combos {
+            bindings = <&kp AT_SIGN>;
+            key-positions = <2 14>;
+        };
+
+        hash_combos {
+            bindings = <&kp HASH>;
+            key-positions = <3 15>;
+        };
+
+        dollor_combos {
+            bindings = <&kp DOLLAR>;
+            key-positions = <4 16>;
+        };
+
+        percent_combos {
+            bindings = <&kp PERCENT>;
+            key-positions = <14 26>;
+        };
+
+        hat_combos {
+            bindings = <&kp CARET>;
+            key-positions = <15 27>;
+        };
     };
 
     macros {
